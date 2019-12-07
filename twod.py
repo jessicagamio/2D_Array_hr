@@ -24,7 +24,7 @@ def hourglassSum(arr):
 
     array=makeArray(arr)
 
-    maxNum=0
+    maxNum= None
 
     for i in range(0,4):
         for j in range(0,4):
@@ -35,7 +35,7 @@ def hourglassSum(arr):
 
             hourglassSum = sum(array[i][j:j+3]) + array[i+1][j+1] + sum(array[i+2][j:j+3])
 
-            if maxNum == 0:
+            if maxNum == None:
                 maxNum = hourglassSum
             elif hourglassSum > maxNum:
                 maxNum = hourglassSum
@@ -68,6 +68,16 @@ arr2="1 1 1 0 0 0 \
 0 0 0 -2 0 0 \
 0 0 -1 -2 -4 0"
 
+#answer is 0
+arr3="-1 1 -1 0 0 0 \
+0 -1 0 0 0 0 \
+-1 -1 -1 0 0 0 \
+0 -9 2 -4 -4 0 \
+-7 0 0 -2 0 0 \
+0 0 -1 -2 -4 0"
+
+
+
 
 class testFunction(unittest.TestCase):
 
@@ -75,5 +85,6 @@ class testFunction(unittest.TestCase):
         self.assertEqual(hourglassSum(arr),19)
         self.assertEqual(hourglassSum(arr1),28)
         self.assertEqual(hourglassSum(arr2),13)
+        self.assertEqual(hourglassSum(arr3),0)
 if __name__=="__main__":
     unittest.main()
