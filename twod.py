@@ -19,19 +19,21 @@ def makeArray(arr):
     return array
 
 
-
 def hourglassSum(arr):
     """returns the maximum sum of hourglass array"""
 
     array=makeArray(arr)
-    # for num in array:
-    #     print(num)
 
     maxNum=0
 
     for i in range(0,4):
         for j in range(0,4):
-            hourglassSum = sum(array[i][j:j+3]) + array[i+2][j+1] + sum(array[i+2][j:j+3])
+
+            top=array[i][j:j+3]
+            middle=array[i+1][j+1]
+            bottom=array[i+2][j:j+3]
+
+            hourglassSum = sum(array[i][j:j+3]) + array[i+1][j+1] + sum(array[i+2][j:j+3])
 
             if maxNum == 0:
                 maxNum = hourglassSum
